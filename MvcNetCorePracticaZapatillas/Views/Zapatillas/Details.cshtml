@@ -1,0 +1,30 @@
+﻿
+@{
+    Zapatilla zapatilla = ViewData["ZAPATILLASELECT"] as Zapatilla;
+}
+
+
+<ul class="list-group">
+    <li class="list-group-item list-group-item-secondary">Nombre: @zapatilla.Nombre</li>
+    <li class="list-group-item">@zapatilla.Descripcion</li>
+    <li class="list-group-item">Precio: @zapatilla.Precio</li>
+</ul>
+
+<div id="partialImagenesZapatillas"></div>
+
+<p>
+    <a class="btn btn-outline-dark" asp-controller="Zapatillas"
+       asp-action="Zapatillas">Volver a index</a>
+</p>
+
+@section Scripts {
+    <script>
+        function loadZapatillasPaginacion(posicion){
+            $(document).ready(function (){
+                $("#partialImagenesZapatillas").load("/Zapatillas/_ZapatillaPartial?posicion="
+                    + posicion + "&idproducto="+@zapatilla.IdProducto);
+            });
+        }
+        loadZapatillasPaginacion(1);
+    </script>
+}
