@@ -6,6 +6,25 @@ using System.Data;
 
 namespace MvcNetCorePracticaZapatillas.Repository
 {
+#region
+/*
+     create or alter procedure SP_ZAPATILLAS_IMAGENES_OUT
+     (@posicion int, @idproducto int, @registros int out)
+     as
+     --todos los registro de un departamento
+     select @registros = COUNT(IDIMAGEN) from IMAGENESZAPASPRACTICA
+     where IDPRODUCTO = @idproducto
+
+     SELECT IDIMAGEN, IMAGEN , IDPRODUCTO from
+     (select CAST(ROW_NUMBER() over(order by IMAGEN) as int) AS POSICION,
+     IDIMAGEN, IMAGEN, IDPRODUCTO
+     from IMAGENESZAPASPRACTICA
+     where IDPRODUCTO = @idproducto) as query
+     where query.POSICION = @posicion
+     go
+
+  */
+#endregion
     public class RepositoryZapatillas
     {
         private ZapatillasContext context;
